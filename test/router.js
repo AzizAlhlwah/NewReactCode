@@ -75,3 +75,16 @@ describe('.middleware', function(){
       .expect('foo', done);
     })
   })
+
+  describe('.multiple callbacks', function(){
+    it('should throw if a callback is null', function(){
+      assert.throws(function () {
+        router.route('get', '/foo', null, function(){});
+      })
+    })
+
+    it('should throw if a callback is undefined', function(){
+      assert.throws(function () {
+        router.route('get', '/foo', undefined, function(){});
+      })
+    })
