@@ -76,4 +76,17 @@ describe('.middleware', function(){
     })
   })
 
+  it('should throw if a callback is not a function', function(){
+      assert.throws(function () {
+        router.route('get', '/foo', 'not a function', function(){});
+      })
+    })
+
+    it('should not throw if all callbacks are functions', function(){
+      router.route('get', '/foo', function(){}, function(){});
+    })
+  })
+
+"vvv"
+
   
